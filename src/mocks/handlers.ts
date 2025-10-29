@@ -56,7 +56,8 @@ export const handlers = [
     ]);
   }),
 
-  // Flashcards
+
+  // Flashcards (expanded)
   http.get('/api/flashcards', () => {
     return HttpResponse.json([
       { id: 1, title: "Algebra Basics", subject: "Mathematics", level: "O-Level", count: 12, difficulty: "Easy" },
@@ -67,7 +68,34 @@ export const handlers = [
       { id: 6, title: "Quantum Physics", subject: "Physics", level: "A-Level", count: 18, difficulty: "Hard" },
       { id: 7, title: "Organic Chemistry", subject: "Chemistry", level: "A-Level", count: 16, difficulty: "Medium" },
       { id: 8, title: "Human Physiology", subject: "Biology", level: "A-Level", count: 22, difficulty: "Hard" },
+      { id: 9, title: "World War II", subject: "History", level: "O-Level", count: 11, difficulty: "Medium" },
+      { id: 10, title: "African Geography", subject: "Geography", level: "O-Level", count: 13, difficulty: "Easy" },
+      { id: 11, title: "English Grammar", subject: "English Language", level: "O-Level", count: 17, difficulty: "Easy" },
+      { id: 12, title: "Advanced Statistics", subject: "Mathematics", level: "A-Level", count: 19, difficulty: "Hard" },
     ]);
+  }),
+
+  // Tutors (new endpoint)
+  http.get('/api/tutors', () => {
+    return HttpResponse.json([
+      { id: 1, name: "Mr. Chikafu", subject: "Mathematics", level: "O-Level", bio: "15 years experience, passionate about algebra and calculus.", avatar: "/images/tutor.jpg", rating: 4.9 },
+      { id: 2, name: "Ms. Moyo", subject: "Biology", level: "O-Level", bio: "Biology specialist, loves making complex topics simple.", avatar: "/images/students-learning.jpg", rating: 4.8 },
+      { id: 3, name: "Mr. Dube", subject: "Physics", level: "A-Level", bio: "Physics and electronics expert, exam coaching.", avatar: "/images/group-study.jpg", rating: 4.7 },
+      { id: 4, name: "Mrs. Ndlovu", subject: "Chemistry", level: "A-Level", bio: "Chemistry teacher, practical and theory focus.", avatar: "/images/past-papers.jpg", rating: 4.8 },
+      { id: 5, name: "Ms. Sibanda", subject: "English Language", level: "O-Level", bio: "English and literature, essay writing tips.", avatar: "/images/flashcards.jpg", rating: 4.6 },
+    ]);
+  }),
+
+  // User profile (new endpoint)
+  http.get('/api/user', () => {
+    return HttpResponse.json({
+      id: 1,
+      name: "Jane Doe",
+      email: "jane.doe@example.com",
+      avatar: "/images/students-learning.jpg",
+      role: "student",
+      enrolledSubjects: [1, 2, 3, 4],
+    });
   }),
 
   // AI Tutor Chat

@@ -1,7 +1,9 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Clock, FileText, Award, Calendar } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 
 const PastPapers = () => {
   const { data: papers = [], isLoading } = useQuery({
@@ -11,6 +13,7 @@ const PastPapers = () => {
       return response.json();
     },
   });
+  const navigate = useNavigate();
 
   return (
     <div className="space-y-6 animate-in fade-in duration-500">
@@ -28,7 +31,7 @@ const PastPapers = () => {
               <div className="flex items-start justify-between">
                 <div>
                   <CardTitle className="text-xl">{paper.subject}</CardTitle>
-                  <CardDescription>{paper.level} • {paper.year}</CardDescription>
+                  <CardDescription>{paper.level}  {paper.year}</CardDescription>
                 </div>
                 <div className="rounded-lg bg-gradient-to-br from-accent to-primary p-2">
                   <Calendar className="h-5 w-5 text-primary-foreground" />
@@ -51,7 +54,7 @@ const PastPapers = () => {
                   <span>{paper.marks} marks</span>
                 </div>
               </div>
-              <Button className="w-full bg-gradient-to-r from-accent to-primary hover:from-accent/90 hover:to-primary/90">
+              <Button className="w-full bg-gradient-to-r from-accent to-primary hover:from-accent/90 hover:to-primary/90" onClick={() => navigate(`/paper/${paper.id}`)}>
                 Start Paper
               </Button>
             </CardContent>

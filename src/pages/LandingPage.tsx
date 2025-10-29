@@ -15,12 +15,24 @@ export default function LandingPage() {
             <p className="text-xl text-gray-600 mb-8">
               Your comprehensive study companion for ZIMSEC exams. Get personalized tutoring, practice with past papers, and master your subjects effectively.
             </p>
-            <div className="space-x-4">
+            <div className="flex flex-wrap gap-4">
               <Button asChild size="lg" className="bg-primary">
-                <Link to="/dashboard">Get Started</Link>
+                <Link to="/dashboard">Dashboard</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link to="/subjects">Explore Subjects</Link>
+                <Link to="/subjects">Subjects</Link>
+              </Button>
+              <Button asChild variant="secondary" size="lg">
+                <Link to="/tutor">Tutors</Link>
+              </Button>
+              <Button asChild variant="secondary" size="lg">
+                <Link to="/past-papers">Past Papers</Link>
+              </Button>
+              <Button asChild variant="secondary" size="lg">
+                <Link to="/flashcards">Flashcards</Link>
+              </Button>
+              <Button asChild variant="secondary" size="lg">
+                <Link to="/profile">Profile</Link>
               </Button>
             </div>
           </div>
